@@ -17,8 +17,10 @@ For more information refer to the corresponding paper [TACTO: A Fast, Flexible, 
 
 NOTE: the simulator is not meant to provide a physically accurate dynamics of the contacts (e.g., deformation, friction), but rather relies on existing physics engines.
 
-**For updates and discussions please join the #TACTO channel at the [www.touch-sensing.org](https://www.touch-sensing.org/) community.**
+## Further Material
+The 3D models used for this repo can be found at: [The YCB Object and Model Set: Towards Common Benchmarks for Manipulation Research][http://ycb-benchmarks.s3-website-us-east-1.amazonaws.com/]
 
+To convert a .obj file to a .urdf file, it is posible to use [obejct2urdf][https://github.com/harvard-microrobotics/object2urdf]
 
 ## Installation
 
