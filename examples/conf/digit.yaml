@@ -16,14 +16,14 @@ digit:
   use_fixed_base: True
 
 object:
-  urdf_path: "objects/sphere_small.urdf"
-  base_position: [-0.015, 0, 0.04]
-  global_scaling: 0.15
+  urdf_path: "objects/mug.urdf"
+  base_position: [-0.015, 0, 2.04]
+  global_scaling: 1
 
 object_control_panel:
   slider_params:
-    position_low: [-0.04, -0.02, 0.02]
-    position_high: [0.005, 0.02, 0.03]
+    position_low: [-0.04, -0.02, -0.22]
+    position_high: [0.005, 0.02, 0.23]
 
 pybullet_camera:
   cameraDistance: 0.12
