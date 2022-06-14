@@ -17,13 +17,13 @@ digit:
 
 object:
   urdf_path: "objects/mug.urdf"
-  base_position: [-0.015, 0, 2.04]
+  base_position: [0, 0, 3.0]
   global_scaling: 1
 
 object_control_panel:
   slider_params:
-    position_low: [-0.04, -0.02, -0.22]
-    position_high: [0.005, 0.02, 0.23]
+    position_low: [-0.1, -0.1, -0.3]
+    position_high: [0.1, 0.1, 0.3]
 
 pybullet_camera:
   cameraDistance: 0.12
