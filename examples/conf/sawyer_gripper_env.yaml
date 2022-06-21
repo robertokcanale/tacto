@@ -10,9 +10,9 @@ sawyer_gripper:
     gripper_width: 0.11
 
 object:
-  urdf_path: "objects/cube_small.urdf"
+  urdf_path: "objects/cube.urdf"
   base_position: [0.50, 0, 0.02]
-  global_scaling: 0.6
+  global_scaling: 1
 
 tacto:
   width: 120

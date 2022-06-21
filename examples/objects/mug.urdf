@@ -16,6 +16,9 @@
         <mesh filename="mug/mug.obj" />
         <!-- <mesh filename="textured_sphere_smooth.obj" sscale = "1.2 1.2 1.2"/>       -->
       </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>

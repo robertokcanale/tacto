@@ -13,14 +13,17 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-				<cylinder length="0.3" radius="0.3"/>
-        <!-- <mesh filename="textured_sphere_smooth.obj" scale="0.03 0.03 1"/>       -->
+        <mesh filename="bottle/bottle.obj" scale = "0.009 0.009 0.009"/>
+        <!-- <mesh filename="textured_sphere_smooth.obj" sscale = "1.2 1.2 1.2"/>       -->
       </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-				<cylinder length="0.3" radius="0.3"/>
+        <cylinder radius= "0.03" length= "0.04"/>
       </geometry>
     </collision>
   </link>

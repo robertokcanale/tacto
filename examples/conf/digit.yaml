@@ -16,7 +16,7 @@ digit:
   use_fixed_base: True
 
 object:
-  urdf_path: "objects/mug.urdf"
+  urdf_path: "objects/bottle.urdf"
   base_position: [0, 0, 3.0]
   global_scaling: 1
 

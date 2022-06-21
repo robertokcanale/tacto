@@ -52,21 +52,21 @@ def main(cfg):
         color, depth = digits.render()
         
         #preparing the iarrays mages as an image, for coloured and depth image
-        colors = np.concatenate(color, axis=1)        
-        depths =np.concatenate(list(map(digits._depth_to_color, depth)), axis=1)
+        #colors = np.concatenate(color, axis=1)        
+        #depths =np.concatenate(list(map(digits._depth_to_color, depth)), axis=1)
        
        #resizing the images if needed
-        depths = cv2.resize(depths, (400, 400), interpolation = cv2.INTER_AREA)
-        colors = cv2.resize(colors, (400, 400), interpolation = cv2.INTER_AREA)
+       # depths = cv2.resize(depths, (400, 400), interpolation = cv2.INTER_AREA)
+        #colors = cv2.resize(colors, (400, 400), interpolation = cv2.INTER_AREA)
         #Showing the iamges
-        cv2.imshow("depths", cv2.cvtColor(depths, cv2.COLOR_RGB2BGR))
-        cv2.imshow("colors", cv2.cvtColor(colors, cv2.COLOR_RGB2BGR))
-        c = cv2.waitKey(2000)
-        print (os.getcwd())        
-        if (c == ord('s')): 
-            print("saved")
-            cv2.imwrite(os.getcwd()+'/contact_image_dataset/test_depths.jpeg',depths) 
-            cv2.imwrite(os.getcwd()+'/contact_image_dataset/test_colors.jpeg',colors) 
+       # cv2.imshow("depths", cv2.cvtColor(depths, cv2.COLOR_RGB2BGR))
+        #cv2.imshow("colors", cv2.cvtColor(colors, cv2.COLOR_RGB2BGR))
+        #c = cv2.waitKey(2000)
+        #print (os.getcwd())        
+        #if (c == ord('s')): 
+         #   print("saved")
+         #   cv2.imwrite(os.getcwd()+'/contact_image_dataset/test_depths.jpeg',depths) 
+         #   cv2.imwrite(os.getcwd()+'/contact_image_dataset/test_colors.jpeg',colors) 
 
 
     

@@ -3,7 +3,7 @@ hydra:
     dir: ./
 
 object:
-  urdf_path: "objects/chips_can_vhacd.urdf"
+  urdf_path: "objects/cube.urdf"
   base_position: [0.50, 0, 0.0]
   global_scaling: 0.6
 
