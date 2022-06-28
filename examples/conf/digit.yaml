@@ -16,9 +16,9 @@ digit:
   use_fixed_base: True
 
 object:
-  urdf_path: "objects/bottle.urdf"
+  urdf_path: "objects/hollow_cylinder.urdf"
   base_position: [0, 0, 3.0]
-  global_scaling: 1
+  global_scaling: 0.5
 
 object_control_panel:
   slider_params:
