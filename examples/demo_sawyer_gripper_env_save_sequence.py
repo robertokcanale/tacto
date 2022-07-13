@@ -5,9 +5,10 @@
 
 import torch
 import gym
-#import sawyer_gripper_env  # noqa: F401
-from sawyer_gripper_env import *
-
+import sawyer_gripper_env  # noqa: F401
+from numpy import concatenate
+import cv2 
+import os
 class GraspingPolicy(torch.nn.Module):
     def __init__(self, env):
         super().__init__()
@@ -19,10 +20,10 @@ class GraspingPolicy(torch.nn.Module):
         if not states:
             return action
 
-        z_low, z_high = 0.05, 0.4
+        z_low, z_high = 0.1, 0.4
         dz = 0.02
         w_open, w_close = 0.11, 0.05
-        gripper_force = 20
+        gripper_force = 30
 
         if self.t < 50:
             action.end_effector.position = states.object.position + [0, 0, z_high]
@@ -49,21 +50,26 @@ class GraspingPolicy(torch.nn.Module):
 
 
 def main():
-    env = SawyerGripperEnv()
-    print (f"Env observation space: {env.observation_space}")
+    env = gym.make("sawyer-gripper-v0")
     env.reset()
-
     # Create a hard-coded grasping policy
     policy = GraspingPolicy(env)
 
     # Set the initial state (obs) to None, done to False
     obs, done = None, False
-
+    print(os.getcwd())
+    i = 0
     while not done:
-        env.render()
+        color, depth = env.render()
         action = policy(obs)
         obs, reward, done, info = env.step(action)
+        
 
+        colors = concatenate(color, axis=1)        
+        depths =concatenate(list(map(env.digits._depth_to_color, depth)), axis=1)  
+        cv2.imwrite(os.getcwd() + '/images/mug/color' + str(i) + '.png',cv2.cvtColor(colors, cv2.COLOR_RGB2BGR))
+        cv2.imwrite(os.getcwd() + '/images/mug/depth' + str(i) + '.png',cv2.cvtColor(depths, cv2.COLOR_RGB2BGR))
+        i = i+1
     env.close()
 
 

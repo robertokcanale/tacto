@@ -7,6 +7,7 @@ import os
 import copy
 import logging
 import collections
+from unicodedata import digit
 
 import cv2
 import gym
@@ -154,9 +155,14 @@ class SawyerGripperEnv(gym.Env):
             min_, max_ = depth.min(), depth.max()
             return ((depth - min_) / (max_ - min_) * 255).astype(np.uint8)
 
-        img = np.concatenate([digit.color for digit in self.obs.digits], axis=1)
-        cv2.imshow("img", img)
-        cv2.waitKey(1)
+        #img1 = np.concatenate([digit.color for digit in self.obs.digits], axis=1)
+        #img2 = np.concatenate([digit.depth for digit in self.obs.digits], axis=1)
+        color, depth = self.digits.render()
+        self.digits.updateGUI(color, depth)
+        
+        return color, depth
+        #cv2.imshow("img", img1)
+        #cv2.waitKey(1)
 
     def close(self):
         pass

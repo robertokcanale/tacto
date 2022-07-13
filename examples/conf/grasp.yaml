@@ -3,7 +3,7 @@ hydra:
     dir: ./
 
 object:
-  urdf_path: "objects/bottle.urdf"
+  urdf_path: "objects/tomato_soup_can.urdf"
   base_position: [0.50, 0, 0.0]
   global_scaling: 0.6
 
