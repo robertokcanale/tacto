@@ -104,4 +104,4 @@ experiments/grasp_stability/models
 experiments/grasp_stability/data
 
 #examples images
-examples/images
+#examples/images

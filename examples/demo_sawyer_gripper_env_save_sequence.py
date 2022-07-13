@@ -20,19 +20,19 @@ class GraspingPolicy(torch.nn.Module):
         if not states:
             return action
 
-        z_low, z_high = 0.1, 0.4
+        z_low, z_high = 0.15, 0.4
         dz = 0.02
-        w_open, w_close = 0.11, 0.05
+        w_open, w_close = 0.11, 0.01
         gripper_force = 30
 
         if self.t < 50:
             action.end_effector.position = states.object.position + [0, 0, z_high]
-            action.end_effector.orientation = [0.0, 1, 0.0, 0.0]
+            action.end_effector.orientation = [0.0, 0.5, 0.0, 0.0]
             action.gripper_width = w_open
         elif self.t < 100:
             s = (self.t - 50) / 50
             z = z_high - s * (z_high - z_low)
-            action.end_effector.position = states.object.position + [0, 0, z]
+            action.end_effector.position = states.object.position + [0, 0, z-0.1]
         elif self.t < 150:
             action.gripper_width = w_close
             action.gripper_force = gripper_force
@@ -63,12 +63,11 @@ def main():
         color, depth = env.render()
         action = policy(obs)
         obs, reward, done, info = env.step(action)
-        
 
         colors = concatenate(color, axis=1)        
         depths =concatenate(list(map(env.digits._depth_to_color, depth)), axis=1)  
-        cv2.imwrite(os.getcwd() + '/images/mug/color' + str(i) + '.png',cv2.cvtColor(colors, cv2.COLOR_RGB2BGR))
-        cv2.imwrite(os.getcwd() + '/images/mug/depth' + str(i) + '.png',cv2.cvtColor(depths, cv2.COLOR_RGB2BGR))
+        cv2.imwrite(os.getcwd() + '/images/mug/color_' + str(i) + '.png',cv2.cvtColor(colors, cv2.COLOR_RGB2BGR))
+        cv2.imwrite(os.getcwd() + '/images/mug/depth_' + str(i) + '.png',cv2.cvtColor(depths, cv2.COLOR_RGB2BGR))
         i = i+1
     env.close()
 
